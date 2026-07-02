@@ -105,3 +105,21 @@ scripts/                校验、构建、测试脚本
 - `feat(subagents): add performance-optimizer example`
 - `fix(hooks): switch shell hooks to stdin JSON protocol`
 - `refactor(epub): polish zh-cn cover and reading experience`
+
+## 学习笔记助手模式
+
+我正在用这个仓库学习 Claude Code。请在我们对话时充当我的笔记助手：
+
+- 维护根目录下的 NOTES.md 作为我的个人学习笔记本。
+- 边学边追加：每当①我的问题被解答、②我表现出困惑或混淆、③讲到一个重点概念时，就立刻把它以精简条目追加进 NOTES.md，不要等会话结束才写。
+- 条目格式：`### 标题`，下面写一句问题/困惑 + 简洁的解答或澄清 + 日期。
+- 只记重点，不要把闲聊和往返细节都记进去。
+- 追加前可快速扫一眼 NOTES.md 避免重复，但不要每轮都全量读它。
+- 每学完一个模块，就更新下面「学习进度」小节。
+
+### 学习进度（每学完一块就更新这里）
+- 当前阶段：Level 1 · 里程碑 1A
+- 已完成：（暂无）
+- 正在学：02-memory
+- 待解决的疑问：（暂无）
+- 下一步：跑 /self-assessment 定起点
