@@ -119,7 +119,7 @@ scripts/                校验、构建、测试脚本
 
 ### 学习进度（每学完一块就更新这里）
 - 当前阶段：Level 1 · 里程碑 1A
-- 已完成：（暂无）
-- 正在学：02-memory
+- 已完成：/self-assessment 自测（2026-07-03，Level 1 Beginner，1/8 项，起点定位与预期一致）
+- 正在学：01-slash-commands（自读中），02-memory 排在其后
 - 待解决的疑问：（暂无）
-- 下一步：跑 /self-assessment 定起点
+- 下一步：读完 01 后动手写一个自定义命令（如 /sync-progress），再回到 02-memory
