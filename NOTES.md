@@ -36,23 +36,26 @@
 
 ### 去哪逛社区 skill、怎么装、注意什么
 问：skill 有社区吗？想逛逛热门的。
-答：有，主要靠 GitHub 的「awesome list」人工精选清单，Anthropic 暂无官方付费商店。推荐入口：hesreallyhim/awesome-claude-code（最被认可、门槛严）、ComposioHQ/awesome-claude-skills 与 travisvn/awesome-claude-skills（按领域分类找 skill）、rohitg00/awesome-claude-code-toolkit（打包工具箱）。安装官方推荐用**插件市场**：会话里 `/plugin marketplace add <user>/<repo>` → `/plugin` 勾选安装（这正是 07-plugins 的内容）。判断口碑看 GitHub 页面的 star 数+近期更新，别信聚合页夸大的安装量数字。⚠️安全：装第三方 skill = 让别人的指令/脚本在你机器上跑，装前扫一眼 SKILL.md 和附带脚本有无可疑命令；装完可用本仓库的 agent-review skill 体检。（2026-07-05）
+答：有，主要靠 GitHub 的「awesome list」人工精选清单，Anthropic 暂无官方付费商店。推荐入口：hesreallyhim/awesome-claude-code（最被认可、门槛严）、ComposioHQ/awesome-claude-skills 与 travisvn/awesome-claude-skills（按领域分类找 skill）、rohitg00/awesome-claude-code-toolkit（打包工具箱）。安装官方推荐用**插件市场**：会话里 `/plugin marketplace add <user>/<repo>` → `/plugin` 勾选安装（这正是 07-plugins 的内容）。判断口碑看 GitHub 页面的 star 数+近期更新，别信聚合页夸大的安装量数字。⚠️安全：装第三方 skill = 让别人的指令/脚本在你机器上跑，装前扫一眼 SKILL.md 和附带脚本有无可疑命令；装完可用本仓库的 agent-config-audit skill 体检。（2026-07-05）
 
-### 亲手做了一个覆盖全教程的审查 skill：/agent-review
+### 亲手做了一个覆盖全教程的审查 skill：/agent-config-audit
 问：想要一个"常驻审查员"，我新开 agent 项目时能持续 review 我的配置写得怎么样，有现成模板吗？
-答：不抄外部 boilerplate，而是**从本仓库 10 个模块提炼评分标准**做了一个 `/agent-review` skill（`.claude/skills/agent-review/`：`SKILL.md` 编排流程 + `references/checklist.md` 存评分标准 + `README.md` 介绍）。关键设计三点：①检查点分两类——`[配置]`类能对文件直接打分（✅/⚠️/❌），`[实践]`类是使用习惯只做自查建议、不伪装成客观评分；②**只审生效配置**，教学示例文件（如 config-examples.json）和缺失构件都不扣分，避免制造假问题；③每条建议回链对应 lesson，边审边复习。跑通验证时它真抓到一个 live 问题：`.claude/commands/README.md` 被注册成了幽灵 `/README` 命令。收获：一个"审查员"本质就是把最佳实践写成**可判定 checklist** + 编排读取和比对的流程。（2026-07-05）
+答：不抄外部 boilerplate，而是**从本仓库 10 个模块提炼评分标准**做了一个 `/agent-config-audit` skill（`.claude/skills/agent-config-audit/`：`SKILL.md` 编排流程 + `references/checklist.md` 存评分标准 + `README.md` 介绍）。关键设计三点：①检查点分两类——`[配置]`类能对文件直接打分（✅/⚠️/❌），`[实践]`类是使用习惯只做自查建议、不伪装成客观评分；②**只审生效配置**，教学示例文件（如 config-examples.json）和缺失构件都不扣分，避免制造假问题；③每条建议回链对应 lesson，边审边复习。跑通验证时它真抓到一个 live 问题：`.claude/commands/README.md` 被注册成了幽灵 `/README` 命令。收获：一个"审查员"本质就是把最佳实践写成**可判定 checklist** + 编排读取和比对的流程。（2026-07-05）
 
 ### 把 skill 做成"所有项目常态化"：装个人级 + 同步坑
-问：agent-review 是通用的吗？想让它以后开发任何新项目都能 review 我。
-答：内容通用（读任意项目的 .claude/，无写死本仓库的东西），但要真"常态化"需两步：①**改可移植回链**——原来让它回链 `04-subagents/README.md` 这种相对路径，只在本教程仓库指得到，别的项目里是死链；改成"参考教程 <模块名> 一节"的纯文字写法。②**装到个人级** `~/.claude/skills/agent-review/`（`C:\Users\16009\.claude\skills\`），这样任何项目 `/agent-review` 都在（当前会话用 `/reload-skills` 立即刷出）。同步坑：个人级不随 git 走 → 现在有两份，**仓库那份是"主"（有 git 记录、跨机同步）、个人级那份是"跑"（实际生效）；改主→拷到跑**；换到 Ubuntu 机器要 pull 后再拷一次到 ~/.claude/skills/。（2026-07-05）
+问：agent-config-audit 是通用的吗？想让它以后开发任何新项目都能 review 我。
+答：内容通用（读任意项目的 .claude/，无写死本仓库的东西），但要真"常态化"需两步：①**改可移植回链**——原来让它回链 `04-subagents/README.md` 这种相对路径，只在本教程仓库指得到，别的项目里是死链；改成"参考教程 <模块名> 一节"的纯文字写法。②**装到个人级** `~/.claude/skills/agent-config-audit/`（`C:\Users\16009\.claude\skills\`），这样任何项目 `/agent-config-audit` 都在（当前会话用 `/reload-skills` 立即刷出）。同步坑：个人级不随 git 走 → 现在有两份，**仓库那份是"主"（有 git 记录、跨机同步）、个人级那份是"跑"（实际生效）；改主→拷到跑**；换到 Ubuntu 机器要 pull 后再拷一次到 ~/.claude/skills/。（2026-07-05）
 
 ### 让 skill 审自己（dogfood）：跨项目用的 skill 措辞不能绑死母仓库
-问：变成个人级后，让 agent-review 先审自己写得够不够好；既然要通用，本仓库的 lesson 链接失效要不要改？
+问：变成个人级后，让 agent-config-audit 先审自己写得够不够好；既然要通用，本仓库的 lesson 链接失效要不要改？
 答：做法叫 **dogfood**——用它自己的 03-skills 标准审它自己。派了个独立 Explore agent 挑刺，结论：skill 质量达标（03-skills 八条基本全过、命名不遮蔽内置），唯一质量瑕疵是 **description 触发词排太靠后**（03-skills 说关键场景要放前半句，否则预算裁剪先丢它）→ 把 `Use when…` 提前、10 个维度枚举挪句尾。真正要修的是一批"只对本仓库成立"的措辞：checklist 里 10 处 `对应 lesson：NN-xxx/README.md`（指向母仓库的相对路径，别的项目里读不通）→ 改纯主题名 `对应模块：NN topic`；3 处"本教程"→"10 个维度"；2 处写死 `config-examples.json`→"教程/文档里的示例配置"；README 里"回链仓库内 lesson"（还和 SKILL.md"别用相对链接"自相矛盾）→"指回模块名"。校验器（validate_localization）确认这些 inline-code 路径不被当链接校验，安全，唯一红线是**每个 Markdown 标题至少留一个中文字**。收获：①好 skill 要经得起自己的标准审；②要跨项目复用的 skill，任何绑死母仓库语境的文字都是隐性 bug。（2026-07-05）
 
 ### 删回引≠变通用：没了兜底，每条判据必须自己说准说全
 问：变通用不是删掉本仓库措辞就完事——以前有回引可点进教程看全文，现在没回引了，每条检查点在对应位置都提炼准确了吗？
 答：这个质疑对，且暴露了真问题。派 3 个 agent 把 10 个模块检查点逐条对教程原文核"准确性+自足性"，真查出几条本就不够准的（不是措辞、是内容 bug）：①09 把 `checkpoints.autoCheckpoint`（已过时的**真实**开关，应判 ⚠️）和 `permissions.mode:unrestricted`/`extendedThinking` 这类**虚构 key**（真实里根本不存在，判 ❌）并列，还和 08 第 1 条自相矛盾；②06 matcher 漏了逗号列表 `"Write,Edit"`（v2.1.191+ 才生效的版本坑）和 `""`；③07"plugin name 要和 marketplace entry 对应"已被 v2.1.195+ 放宽、会误报；④01 过时命令的补救办法张冠李戴（`/pr-comments`、`/vim` 各有不同修法）。教训：当一条引用被删、内容失去"点进去看全文"的兜底时，**该位置必须自己把判据说全说准**，否则简略+无回引=隐性错误。做参考类内容(checklist/文档)时，"自足性"和"准确性"是一对必须一起满足的质量线。（2026-07-05）
+### skill 该放个人级还是专门开个仓？——两个正交问题，别二选一
+问：以后新项目怎么用个人级 skill？该新建一个专门存 skill 的仓库、需要时再放进项目，还是放个人级好？
+答：这是把两个正交问题捆一起了：①「Claude 在哪能找到它」= 个人级 `~/.claude/skills/`（所有项目自动可用）vs 项目级 `<项目>/.claude/skills/`（只该项目、随其 git）；②「权威源码存哪、怎么跨机同步」= 要不要一个 git 仓当 master。关键：**专门的 skill 仓本身不会让 skill 生效**，它只是存放/版本管理的家，要生效仍得从它部署（拷到个人级或拷进项目）。推荐（单人+两台机器）：通用 skill = **个人级「跑」+ git 仓「主」两者都要**；现在教程仓已充当 master（agent-config-audit 已提交），短期不必再单开 skill 仓，等攒到三五个再拆。部署两法：拷贝（简单跨平台，改主须重拷）或符号链接（零漂移，但 Windows 要开发者模式）。触发：任何项目里 `/agent-config-audit` 或说「帮我审查配置」即可，`/skills` 查在不在、`/reload-skills` 刷新。（2026-07-05）
 ## 04-subagents 子代理
 ## 05-mcp 外部集成
 

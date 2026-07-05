@@ -1,10 +1,10 @@
 ---
-name: agent-review
+name: agent-config-audit
 version: 1.0.0
-description: 审查一个 Claude Code 项目的配置质量并给改进建议。Use when asked to "review my agent config", "check my claude code setup", "audit my .claude", "agent review", "帮我审查配置", or similar Chinese requests. 覆盖 slash commands、CLAUDE.md/memory、skills、subagents、MCP、hooks、plugins、checkpoints、高级设置、CLI 等 10 个维度的写法与实践质量。
+description: 审查一个 Claude Code 项目的配置质量并给改进建议。Use when asked to "review my agent config", "check my claude code setup", "audit my .claude", "agent config audit", "帮我审查配置", or similar Chinese requests. 覆盖 slash commands、CLAUDE.md/memory、skills、subagents、MCP、hooks、plugins、checkpoints、高级设置、CLI 等 10 个维度的写法与实践质量。
 ---
 
-# 项目全维度体检审查员（Agent Review）
+# 项目配置审计（Agent Config Audit）
 
 这是一个交互式审查 skill，用来给一个 Claude Code 项目的配置与使用质量做「体检」。它覆盖 10 个维度：slash commands、CLAUDE.md/memory、skills、subagents、MCP、hooks、plugins、checkpoints、高级设置、CLI 用法。
 

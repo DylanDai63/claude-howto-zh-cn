@@ -1,6 +1,6 @@
-# agent-review 评分标准（Checklist）
+# agent-config-audit 评分标准（Checklist）
 
-> 这是 `/agent-review` skill 的评分数据源，覆盖 Claude Code 配置的 10 个维度。
+> 这是 `/agent-config-audit` skill 的评分数据源，覆盖 Claude Code 配置的 10 个维度。
 > 每条前缀标签：
 > - `[配置]` = 能对静态文件/settings 直接判定（✅通过 / ⚠️可改进 / ❌问题）。
 > - `[实践]` = 偏使用习惯，无法从静态文件判定，作为自查建议呈现，不打客观分。

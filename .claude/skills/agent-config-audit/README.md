@@ -17,12 +17,12 @@
 | "帮我审查一下我的 agent 配置" | 扫描 `.claude/` 各构件，逐块体检 |
 | "check my claude code setup" | 输出配置评分表 + 实践自查清单 |
 | "audit my .claude" | 找出最该先改的几件事并指回对应模块 |
-| "agent review" | 给项目一个总体健康评级 |
+| "agent config audit" | 给项目一个总体健康评级 |
 
 ## 使用方式
 
 ```text
-/agent-review
+/agent-config-audit
 ```
 
 ## 它会输出什么
