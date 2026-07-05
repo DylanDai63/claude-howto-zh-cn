@@ -118,8 +118,8 @@ scripts/                校验、构建、测试脚本
 - 每学完一个模块，就更新下面「学习进度」小节。
 
 ### 学习进度（每学完一块就更新这里）
-- 当前阶段：Level 1 · 里程碑 1A
-- 已完成：/self-assessment 自测（2026-07-03，Level 1 Beginner，1/8 项，起点定位与预期一致）
-- 正在学：01-slash-commands（自读中），02-memory 排在其后
+- 当前阶段：Level 1 → Level 2 过渡（已能动手产出 skill）
+- 已完成：/self-assessment 自测（2026-07-03，Level 1）；01-slash-commands、02-memory、03-skills、05-mcp 已自读并答疑；**亲手写了一个覆盖全教程的审查 skill /agent-review**（2026-07-05，含 SKILL.md + references/checklist.md + README.md，已过 validate_localization + 本仓库自审跑通）；**又做了一轮 dogfood 通用化打磨**（让它审自己达标 + 去掉绑死母仓库的措辞 + 装到个人级供所有项目用）
+- 正在学：03-skills（已实战产出一个 skill）
 - 待解决的疑问：（暂无）
-- 下一步：读完 01 后动手写一个自定义命令（如 /sync-progress），再回到 02-memory
+- 下一步：删掉 .claude/commands/README.md 幽灵命令（agent-review 抓到的问题）；然后进 04-subagents，理解“agent = 提示词 + 工具”模型
